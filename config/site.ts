@@ -7,10 +7,10 @@
 
 export const siteConfig = {
   /** Nombre visible en la UI, emails y metadata */
-  name: "LF Software Studio",
+  name: "Nombre de la Inmobiliaria",
 
   /** Descripción corta para SEO y metadata */
-  description: "Tu descripción aquí",
+  description: "Gestión de contratos y propiedades de alquiler",
 
   /** Dominio de producción del cliente (sin trailing slash) */
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",

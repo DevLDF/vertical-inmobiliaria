@@ -12,11 +12,11 @@
 export const features = {
   // ── Vertical: Inmobiliaria ────────────────────────────────
   /** Gestión de contratos de alquiler */
-  hasContracts: false,
+  hasContracts: true,
   /** Administración de propiedades */
-  hasProperties: false,
+  hasProperties: true,
   /** Gestión de inquilinos */
-  hasTenants: false,
+  hasTenants: true,
 
   // ── Vertical: Comercio / Ropa ─────────────────────────────
   /** Inventario de productos */

@@ -1,23 +1,55 @@
-# ⚡ LF Software Studio — El Chasis de Hierro (Base Template)
+# 🏠 vertical-inmobiliaria
 
-> Este repositorio es el **núcleo técnico** de la consultora. No es un proyecto final: es la infraestructura estandarizada que permite construir, desplegar y escalar software para clientes (inmobiliarias, locales de ropa, estudios jurídicos) en tiempo récord usando Inteligencia Artificial.
+> Vertical de **LF Software Studio** para inmobiliarias.
+> Construido sobre [`boilerplate-tecnico`](https://github.com/DevLDF/boilerplate-tecnico).
+
+Incluye: gestión de contratos de alquiler (vivienda, comercial, galpón) con preview en tiempo real, autosave, y exportación a PDF.
+
+```
+base-template (boilerplate-tecnico)
+      │
+      └── vertical-inmobiliaria  ← este repo
+              │
+              └── cliente-almada
+              └── cliente-[nombre]
+```
 
 ---
 
-## 🎯 Visión de Negocio
+## Qué agrega este vertical sobre la base
 
-Operamos bajo un modelo de **Alta Velocidad + MRR (Monthly Recurring Revenue)**.
-
-| Pilar | Descripción |
-| :--- | :--- |
-| **Velocidad** | Claude Code no pierde tiempo en configuración. Arranca directo en lógica de negocio. |
-| **Calidad de Hierro** | Cada proyecto que sale de aquí es seguro, tipado y escalable desde el día uno. |
-| **Aislamiento** | Cada cliente tiene su propio repo clonado de este molde y su propia instancia de Supabase. |
-| **Recurrencia** | El modelo SaaS por cliente garantiza ingresos predecibles mes a mes. |
+| Carpeta | Contenido |
+|---|---|
+| `config/features.ts` | `hasContracts`, `hasProperties`, `hasTenants` activados |
+| `types/contrato.ts` | Tipos inferidos desde Zod |
+| `validations/contrato.schema.ts` | Schema completo del contrato de alquiler |
+| `actions/contratos.actions.ts` | CRUD completo con ZSA + Supabase |
+| `app/contratos/` | Rutas: lista, nuevo, editar |
+| `supabase/schema.sql` | Tabla `contratos` con RLS listo para ejecutar |
 
 ---
 
-## 🏗️ Arquitectura de Hierro (Stack 2026)
+## Setup para un cliente nuevo
+
+```bash
+# 1. Crear repo desde este template
+gh repo create DevLDF/cliente-[nombre] --template DevLDF/vertical-inmobiliaria --private
+
+# 2. Clonar y editar SOLO estos dos archivos:
+#    config/site.ts   → nombre, logo, colores
+#    config/features.ts → módulos activos
+
+# 3. Crear proyecto Supabase y ejecutar supabase/schema.sql
+
+# 4. cp .env.example .env.local  y completar con keys del cliente
+
+# 5. npm install && npm run dev
+# 6. vercel --prod
+```
+
+---
+
+## 🏗️ Stack heredado de la base
 
 Para que la IA no alucine y el código sea indestructible, estandarizamos en una sola dirección:
 
